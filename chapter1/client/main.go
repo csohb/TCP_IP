@@ -28,18 +28,6 @@ func main() {
 			// 1초마다 반복
 			time.Sleep(time.Second * 1)
 		}
-		/*data := make([]byte, 4096)
-
-		for {
-			n, err := conn.Read(data)
-			if err != nil {
-				fmt.Println("Client Read err : ", err)
-				return
-			}
-
-			fmt.Println("Server send : ", string(data[:n]))
-			time.Sleep(time.Duration(3)*time.Second)
-		}*/
 	}(conn)
 
 	go func(c net.Conn) {
