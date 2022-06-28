@@ -56,7 +56,7 @@ func handler(conn net.Conn) {
 
 func main() {
 
-	listen, err := net.Listen("tcp", ":10001")
+	listen, err := net.Listen("tcp", ":10002")
 	if err != nil {
 		fmt.Errorf("failed to listen server : %+v", err)
 	}
