@@ -26,6 +26,7 @@ func handleWrite(conn net.Conn) {
 	for i := 0; i < len(operatorByte); i++ {
 		writeBuffer = append(writeBuffer, operatorByte[i])
 	}
+	// git commit
 
 	fmt.Println("writeBuffer : ", writeBuffer)
 	_, err := conn.Write(writeBuffer)
