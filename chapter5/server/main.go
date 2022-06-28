@@ -33,6 +33,7 @@ func handler(conn net.Conn) {
 				val += int(recv[i])
 			}
 		case "*":
+			val = 1
 			for i := 1; i <= count; i++ {
 				val *= int(recv[i])
 			}
@@ -44,9 +45,10 @@ func handler(conn net.Conn) {
 
 		fmt.Println("val : ", val)
 
-		send := make([]byte, val)
-		send = append(send, byte(val))
+		send := make([]byte, 1)
+		send[0] = byte(val)
 
+		fmt.Println("send : ", send)
 		_, err = conn.Write(send)
 		if err != nil {
 			fmt.Errorf("write send err : %+v", err)
@@ -56,7 +58,7 @@ func handler(conn net.Conn) {
 
 func main() {
 
-	listen, err := net.Listen("tcp", ":10002")
+	listen, err := net.Listen("tcp", ":10001")
 	if err != nil {
 		fmt.Errorf("failed to listen server : %+v", err)
 	}
