@@ -11,6 +11,7 @@ func main() {
 		fmt.Errorf("client dial failed : %+v", err)
 	}
 	defer conn.Close()
+
 	var writeBuffer []byte
 	var num int
 	fmt.Print("how many numbers do you want to send to server? :")
